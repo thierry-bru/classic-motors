@@ -19,8 +19,8 @@ services:
             - "3307:3307"
         environment:
             - MYSQL_ROOT_PASSWORD=thisisapassworddamned
-    networks:
-        - web
+        networks:
+            - web
     myadmin:
         image: phpmyadmin/phpmyadmin
         ports:
