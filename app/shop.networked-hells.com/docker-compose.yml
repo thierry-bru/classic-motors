@@ -1,37 +1,37 @@
-services:
-    web:
-        build: './docker-build/php/'
-        volumes:
-            - .:/var/www/shop.networked-hells.com
-        links:
-            - db:db
-        networks:
-            - web
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.routers.blog.rule=Host(`shop.networked-hells.com`)"
-            - "traefik.http.routers.blog.entrypoints=websecure"
-    db:
-        build: './docker-build/mysql/'
-        volumes:
-            - ~/.docker/mysql:/var/lib/mysql
-        ports:
-            - "3307:3307"
-        environment:
-            - MYSQL_ROOT_PASSWORD=thisisapassworddamned
-        networks:
-            - web
-    myadmin:
-        image: phpmyadmin/phpmyadmin
-        ports:
-            - "8083:80"
-        links:
-            - db:db
-        networks:
-        - web
-volumes:
-  data:
+# services:
+#     web:
+#         build: './docker-build/php/'
+#         volumes:
+#             - .:/var/www/shop.networked-hells.com
+#         links:
+#             - db:db
+#         networks:
+#             - web
+#         labels:
+#             - "traefik.enable=true"
+#             - "traefik.http.routers.blog.rule=Host(`shop.networked-hells.com`)"
+#             - "traefik.http.routers.blog.entrypoints=websecure"
+#     db:
+#         build: './docker-build/mysql/'
+#         volumes:
+#             - ~/.docker/mysql:/var/lib/mysql
+#         ports:
+#             - "3307:3307"
+#         environment:
+#             - MYSQL_ROOT_PASSWORD=thisisapassworddamned
+#         networks:
+#             - web
+#     myadmin:
+#         image: phpmyadmin/phpmyadmin
+#         ports:
+#             - "8083:80"
+#         links:
+#             - db:db
+#         networks:
+#         - web
+# volumes:
+#   data:
 
-networks:
-  web:
-    external: true
+# networks:
+#   web:
+#     external: true
