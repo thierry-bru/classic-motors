@@ -1,0 +1,20 @@
+services:
+  app:
+    image: ghost:4-alpine
+    container_name: blog
+    volumes:
+        - content:/var/lib/ghost/content
+    networks:
+        - web
+    labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.blog.rule=Host(`blog.networked-hells.com`)"
+        - "traefik.http.routers.blog.entrypoints=websecure"
+    restart: always
+
+volumes:
+  content:
+
+networks:
+  web:
+    external: true
