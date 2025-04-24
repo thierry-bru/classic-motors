@@ -5,9 +5,6 @@ services:
             - .:/var/www/shop.networked-hells.com
         links:
             - db:db
-        ports:
-            - "80:80"
-            - "443:443"
         networks:
             - web
         labels:

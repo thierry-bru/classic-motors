@@ -28,3 +28,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # #Setup certbot
 # # RUN apt-get install certbot python3-certbot-apache -y
 # # RUN certbot --apache --agree-tos --redirect --hsts --staple-ocsp --email thierry.bru@viaformation.fr -d www.localhost
+EXPOSE 80
+EXPOSE 443
