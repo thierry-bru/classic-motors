@@ -13,7 +13,7 @@ services:
     restart: always
     networks:
       - web
-    web:
+  web:
       build: './docker-build/php/'
       volumes:
           - ./app/shop.networked-hells.com:/var/www/shop.networked-hells.com
